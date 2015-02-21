@@ -43,6 +43,7 @@ Here's a before and after:
 This might not look like much, syntactically, but it represents a large shift in
 *responsibility* from the perspective of the template or partial.
 
-There are more [interesting examples](), using a special interface to allow the
+There are more [interesting
+examples](https://github.com/jamesmartin/unconditional-rails-views/blob/master/app/views/application/index.html.haml), using a special interface to allow the
 calling template control the visibility of the local based on some runtime
 behaviour.
