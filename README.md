@@ -40,7 +40,7 @@ Here's a before and after:
       %p Here's something from the controller: #{foo}
 ```
 
-This might not look like much, syntactically, but it represents a large shift in
+This might not look like much, syntactically, but it represents a [large shift](https://github.com/jamesmartin/unconditional-rails-views/blob/master/lib/unconditional_view/helpers.rb) in
 *responsibility* from the perspective of the template or partial.
 
 There are more [interesting
