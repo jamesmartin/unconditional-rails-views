@@ -1,12 +1,18 @@
 %h1 Local Heros
 
 %p This is an example of rendering a partial with optional local variables.
+%p Let's render the partial 'shared/_greeting_default.html.haml'.
 
 %h2 Without Locals
 %p In this case the 'name' local is not passed to 'render', and the partial has to deal with that uncertainty:
-= render partial: 'shared/example'
-
+= render partial: 'shared/greeting_default'
+%hr
 
 %h2 With Locals
 %p Here the 'name' value is passed to the partial, which can render it:
-= render partial: 'shared/example', locals: { name: 'Bill' }
+= render partial: 'shared/greeting_default', locals: { name: 'Bill' }
+%hr
+
+%p In this case, we use the Rails `defined?` predicate to protect us from an undefined local, which works just fine because this is a very simple case.
+
+%h2

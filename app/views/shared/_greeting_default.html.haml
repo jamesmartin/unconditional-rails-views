@@ -1,0 +1,8 @@
+.partial-greeting
+  - if defined?(name)
+    %p Hello, #{name}.
+  - else
+    %p Hello, there.
+
+  - if defined?(name)
+    Listen, #{name}, it's been fun, but I have to get going.
