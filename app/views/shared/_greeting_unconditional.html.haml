@@ -1,0 +1,8 @@
+.partial-greeting
+  - with_local(:name) do |name|
+    %p Hello, #{name}.
+  - without_local(:name) do
+    %p Hello, there.
+
+  - with_local(:name) do |name|
+    Listen, #{name}, it's been fun, but I have to get going.

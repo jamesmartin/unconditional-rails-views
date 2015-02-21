@@ -1,18 +1,31 @@
 %h1 Local Heros
 
+%h2 Using Rails built-in methods
 %p This is an example of rendering a partial with optional local variables.
 %p Let's render the partial 'shared/_greeting_default.html.haml'.
 
-%h2 Without Locals
+%h3 Without Locals
 %p In this case the 'name' local is not passed to 'render', and the partial has to deal with that uncertainty:
 = render partial: 'shared/greeting_default'
 %hr
 
-%h2 With Locals
+%h3 With Locals
 %p Here the 'name' value is passed to the partial, which can render it:
 = render partial: 'shared/greeting_default', locals: { name: 'Bill' }
 %hr
 
 %p In this case, we use the Rails `defined?` predicate to protect us from an undefined local, which works just fine because this is a very simple case.
 
-%h2
+%h2 The unconditional way
+
+%h3 Without Locals
+%p In this case the 'name' local is not passed to 'render', and the partial has to deal with that uncertainty:
+= render partial: 'shared/greeting_unconditional'
+%hr
+
+%h3 With Locals
+%p Here the 'name' value is passed to the partial, which can render it:
+= render partial: 'shared/greeting_unconditional', locals: { name: 'Bill' }
+%hr
+
+%p Here we're using the `with_local(:name) do` block, moving conditional logic away from the partial and making the template read more declaratively.
