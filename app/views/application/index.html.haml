@@ -18,14 +18,31 @@
 
 %h2 The unconditional way
 
+%p To get things moving we declare that we depend on locally assigned variables: `depend_on(local_assigns)`
 %h3 Without Locals
-%p In this case the 'name' local is not passed to 'render', and the partial has to deal with that uncertainty:
+%p In this case the 'name' local is not yielded because it's not set, so the view moves on to the `without_local` case.
 = render partial: 'shared/greeting_unconditional'
 %hr
 
 %h3 With Locals
-%p Here the 'name' value is passed to the partial, which can render it:
+%p Here the 'name' value is passed to the partial, which is rendered to the `with_local(:name)` block for rendering.
 = render partial: 'shared/greeting_unconditional', locals: { name: 'Bill' }
 %hr
 
-%p Here we're using the `with_local(:name) do` block, moving conditional logic away from the partial and making the template read more declaratively.
+%p Here we're using the `with_local(:name) do |name|...` block, moving conditional logic away from the partial and making the template read more declaratively.
+%p
+  In both cases we render an instance variable set by the controller;
+  in this case the `foo` variable, whose value is `:bar`. We do this with the
+  `with_global(:foo) do |foo|...` block. Ideally, partials won't be rendering any
+  instance variables, and will only render locals instead. Still, options are nice.
+
+%h3 Locals with Conditions
+
+%p
+  Sometimes we want to control the behaviour of locally assigned variable availabilty
+  from outside the partial. Here we conditionally render a telephone number based on
+  the object implementing two methods: `dependable?` and `renderable_value`.
+
+- tel1 = Struct.new(:dependable?, :renderable_value).new(true, "1800 555 789")
+- tel2 = Struct.new(:dependable?, :renderable_value).new(false, "1800 555 789")
+= render partial: 'shared/conditional_local', locals: { tel1: tel1, tel2: tel2 }

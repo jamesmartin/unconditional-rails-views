@@ -1,0 +1,11 @@
+- depend_on(local_assigns)
+.indented-example
+  - with_local(:tel1) do |tel|
+    %p Telephone #1 is #{tel}.
+  - without_local(:tel1) do
+    %p Telephone #1 is not available.
+
+  - with_local(:tel2) do |tel|
+    %p Telephone #2 is #{tel}.
+  - without_local(:tel2) do
+    %p Telephone #2 is not available.
