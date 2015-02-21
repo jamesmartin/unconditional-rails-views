@@ -11,3 +11,16 @@
  *= require_self
  *= require_tree .
  */
+
+body {
+  margin: 1%;
+  font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+}
+.partial-greeting {
+  margin-left: 2%;
+  border: 1px dashed grey;
+}
+.partial-greeting::before {
+  content: 'Partial: ';
+  font-family: 'Courier New', Courier, 'Lucida Sans Typewriter', 'Lucida Typewriter', monospace;
+}
