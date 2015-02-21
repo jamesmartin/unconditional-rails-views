@@ -1,1 +1,12 @@
 %h1 Local Heros
+
+%p This is an example of rendering a partial with optional local variables.
+
+%h2 Without Locals
+%p In this case the 'name' local is not passed to 'render', and the partial has to deal with that uncertainty:
+= render partial: 'shared/example'
+
+
+%h2 With Locals
+%p Here the 'name' value is passed to the partial, which can render it:
+= render partial: 'shared/example', locals: { name: 'Bill' }
