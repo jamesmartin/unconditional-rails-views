@@ -28,16 +28,16 @@ Here's a before and after:
 
 ```haml
   - depend_on(local_assigns)
-    - with_local(:name) do |name|
-      %p Hello, #{name}.
-    - without_local(:name) do
-      %p Hello, there.
+  - with_local(:name) do |name|
+    %p Hello, #{name}.
+  - without_local(:name) do
+    %p Hello, there.
 
-    - with_local(:name) do |name|
-      %p Listen, #{name}, it's been fun, but I have to get going.
+  - with_local(:name) do |name|
+    %p Listen, #{name}, it's been fun, but I have to get going.
 
-    - with_global(:foo) do |foo|
-      %p Here's something from the controller: #{foo}
+  - with_global(:foo) do |foo|
+    %p Here's something from the controller: #{foo}
 ```
 
 This might not look like much, syntactically, but it represents a [large shift](https://github.com/jamesmartin/unconditional-rails-views/blob/master/lib/unconditional_view/helpers.rb) in
